@@ -1,0 +1,278 @@
+[
+  {
+    "command": "broadcast",
+    "audience": "all",
+    "description": "Send to all devices",
+    "notification": {
+      "alert": "broadcast"
+    },
+    "device_types": [
+      "ios",
+      "android"
+    ]
+  },
+  {
+    "command": "delta_schedule",
+    "audience": "all",
+    "description": "Schedule broadcast for 60 mintues from request.",
+    "schedule": {
+      "name": "bleary test schdeule",
+      "delta": {"minutes" : 60}
+    },
+    "notification": {
+      "alert": "broadcast schedule delta"
+    },
+    "device_types": "all"
+  },
+  {
+    "command": "plt_schedule",
+    "audience": "all",
+    "description": "Push to device local time Brodcast.",
+    "plt": {
+      "name": "bleary test schdeule",
+      "time": "2016-03-18T01:00:00"
+    },
+    "notification": {
+      "alert": "broadcast plt abs"
+    },
+    "device_types": "all"
+  },
+  {
+    "command": "dt",
+    "description": "Unicast to Device Token.",
+    "audience": {
+      "device_token": "F12D80ADF1683794885A7730BF61F40A10988F671AB576F3E26655D0A5E1CAB5"
+    },
+    "notification": {
+      "alert": "device token (aaron iphone)"
+    },
+    "device_types": "all"
+  },
+  {
+    "command": "ios_channel",
+    "description": "Unicast to iOS Channel.",
+    "audience": {
+      "ios_channel": "667d4576-9c83-4e81-9e34-cc45d1314c46"
+    },
+    "notification": {
+      "alert": "ios channel (aaron iphone)"
+    },
+    "device_types": "all"
+  },
+  {
+    "command": "tag",
+    "description": "Send to tag bleary_test.",
+    "audience": {
+      "tag": "bleary_test"
+    },
+    "notification": {
+      "alert": "tag (bleary_test)"
+    },
+    "device_types": "all"
+  },
+  {
+    "command": "alias",
+    "description": "Send to alias.",
+    "audience": {
+      "alias": "aaron"
+    },
+    "notification": {
+      "alert": "alias (bleary_test)"
+    },
+    "device_types": "all"
+  },
+  {
+    "command": "named_user",
+    "description": "Send to Named User",
+    "audience": {
+      "named_user": "aaron"
+    },
+    "notification": {
+      "alert": "named_user (aaron)"
+    },
+    "device_types": "all"
+  },
+  {
+    "command": "segment",
+    "description": "Send to Segment Id.",
+    "audience": {
+      "segment": "a560ee46-87ff-41e0-8ed2-fac7a778d475"
+    },
+    "notification": {
+      "alert": "segment (a560ee46-87ff-41e0-8ed2-fac7a778d475)"
+    },
+    "device_types": "all"
+  },
+  {
+    "command": "ios_only",
+    "audience": "all",
+    "description": "Send to iOS only with all platform options.",
+    "notification": {
+      "alert": "general",
+      "ios": {
+        "alert": "Hello iOS",
+        "badge": 0,
+        "sound": "cat.caf",
+        "content_avaliable": 0,
+        "extra": {
+          "key_test": "value_test"
+        },
+        "expiry": "2016-12-31T00:00:00",
+        "category": "awesome",
+        "title": "Hello Watch!"
+      }
+    },
+    "device_types": [
+      "ios"
+    ]
+  },
+  {
+    "command": "android_only",
+    "audience": "all",
+    "description": "Send to Android only with set platform options.",
+    "notification": {
+      "alert": "general",
+      "android": {
+        "alert": "Hello Android",
+        "collapse_key": "bleary",
+        "time_to_live": 123,
+        "delay_while_idle": false,
+        "extra": {
+          "key_test": "value_test"
+        },
+        "local_only": false
+      }
+    },
+    "device_types": [
+      "android"
+    ]
+  },
+  {
+    "command": "tag_add",
+    "audience": "all",
+    "description": "Broadcast with tag_add action, adds automation.",
+    "notification": {
+      "alert": "Add a tag"
+    },
+    "actions": {
+      "add_tag": "automation"
+    },
+    "device_types": "all"
+  },
+  {
+    "command": "tag_rm",
+    "audience": "all",
+    "description": "Broadcast with tag_remove option, removes automation.",
+    "notification": {
+      "alert": "Remove a tag"
+    },
+    "actions": {
+      "remove_tag": "automation"
+    },
+    "device_types": "all"
+  },
+  {
+    "command": "open_url",
+    "audience": "all",
+    "description": "Broadcast with URL action.",
+    "notification": {
+      "alert": "Open URL Action"
+    },
+    "actions": {
+      "open": {
+        "type": "url",
+        "content": "http://www.urbanairship.com/"
+      }
+    },
+    "device_types": "all"
+  },
+  {
+    "command": "interactive_share",
+    "audience": "all",
+    "description": "Broadcast with Interactive notification.",
+    "notification": {
+      "alert": "Swipe to Share"
+    },
+    "interactive": {
+      "type": "ua_share",
+      "button_actions": {
+        "share": {
+          "share": "Urban Airship Bleary"
+        }
+      }
+    },
+    "device_types": "all"
+  },
+  {
+    "command": "interactive_yn",
+    "audience": "all",
+    "description": "Broadcast with Interactive, adds or removes automation tag.",
+    "notification": {
+      "alert": "Tag (y/n)"
+    },
+    "interactive": {
+      "type": "ua_yes_no_foreground",
+      "button_actions": {
+        "yes": {
+          "add_tag": "automation"
+        },
+        "no": {
+          "remove_tag": "automation"
+        }
+      }
+    },
+    "device_types": "all"
+  },
+  {
+    "command": "rich",
+    "audience": "all",
+    "description": "Broadcast Rich Push.",
+    "notification": {
+      "alert": "That's Rich"
+    },
+    "message": {
+      "title": "Rich message bleary test",
+      "body": "<h1>fire fire fire lol</h1>",
+      "extra": {
+        "fire": "lol"
+      }
+    },
+    "device_types": "all"
+  },
+  {
+    "command": "rich_tag",
+    "description": "bleary_test tag Rich send",
+    "audience": {
+      "tag": "bleary_test"
+    },
+    "notification": {
+      "alert": "Rich tag send"
+    },
+    "message": {
+      "title": "Rich tag send",
+      "body": "<h1>bleary_test tag rich<hr /><p>shits on fire yo.</p></h1>",
+      "extra": {
+        "fire": "lol"
+      }
+    },
+    "device_types": ["ios", "android"]
+  },
+  {
+    "command": "rich_alias",
+    "description": "Rich send to alias",
+    "audience": {
+      "alias": "aaron"
+    },
+    "notification": {
+      "alert": "Rich alias send"
+    },
+    "message": {
+      "title": "Rich alias send",
+      "body": "<h1>aaron alias rich<hr /><p>shits on fire yo.</p></h1>",
+      "extra": {
+        "fire": "lol"
+      }
+    },
+    "device_types": ["ios", "android"]
+  }
+]
